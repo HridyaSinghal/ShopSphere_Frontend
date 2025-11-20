@@ -135,7 +135,7 @@ const ShopOwnerDashboard = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('hhttps://shopspherebackend.up.railway.app/api/shop/update-product', {
+      const response = await fetch('https://shopspherebackend.up.railway.app/api/shop/update-product', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
