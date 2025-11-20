@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Card from './card';
+import Card from './Card';
 import Needs from './Needs';
 import Footer from './Footer';
 

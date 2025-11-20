@@ -33,4 +33,4 @@ function Card() {
   )
 }
 
-export default Card
+export default Card;

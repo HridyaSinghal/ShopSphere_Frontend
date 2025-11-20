@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './Home';
-import Card from './card';
+import Card from './Card';
 import Needs from './Needs';
 import Footer from './Footer';    
 
