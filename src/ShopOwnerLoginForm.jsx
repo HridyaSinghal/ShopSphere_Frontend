@@ -17,7 +17,7 @@ const ShopOwnerLoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('https://shopspheresworld.netlify.app/shopowner/login', {
+      const response = await fetch('https://shopspherebackend.up.railway.app/shopowner/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
