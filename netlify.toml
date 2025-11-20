@@ -1,0 +1,28 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[build.environment]
+  NODE_VERSION = "18"
+```
+
+## Step 4: Update `.gitignore`
+
+Make sure your `.gitignore` includes:
+```
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Build output
+dist
+dist-ssr
+
+# Dependencies
+node_modules
