@@ -80,7 +80,7 @@ const ShopOwnerDashboard = () => {
       setLoading(true);
       setError(null);
       try {
-        const response = await fetch(`${API_BASE_URL}/api/shop/products`, {
+        const response = await fetch('https://shopspheresworld.netlify.app/api/shop/products', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -110,7 +110,7 @@ const ShopOwnerDashboard = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_BASE_URL}/api/shop/create-product`, {
+      const response = await fetch('https://shopspheresworld.netlify.app/api/shop/create-product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -121,7 +121,7 @@ const ShopOwnerDashboard = () => {
       if (!response.ok) throw new Error('Failed to create product');
       setNewProduct({ productName: '', price: '', quantity: '', productImg: '', productDetails: '', category: '' });
       // Refresh products
-      const productsRes = await fetch(`${API_BASE_URL}/api/shop/products`, {
+      const productsRes = await fetch('https://shopspheresworld.netlify.app/api/shop/products', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(await productsRes.json());
@@ -135,7 +135,7 @@ const ShopOwnerDashboard = () => {
   const handleUpdate = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_BASE_URL}/api/shop/update-product`, {
+      const response = await fetch('https://shopspheresworld.netlify.app/api/shop/update-product', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +147,7 @@ const ShopOwnerDashboard = () => {
       setShowUpdateModal(false);
       setUpdateProduct(null);
       // Refresh products
-      const productsRes = await fetch(`${API_BASE_URL}/api/shop/products`, {
+      const productsRes = await fetch('https://shopspheresworld.netlify.app/api/shop/products', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(await productsRes.json());
@@ -160,13 +160,13 @@ const ShopOwnerDashboard = () => {
   const handleDelete = async (productId) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      const response = await fetch(`${API_BASE_URL}/api/shop/delete-product/${productId}`, {
+      const response = await fetch(`https://shopspheresworld.netlify.app/api/shop/delete-product/${productId}`, {
         method: 'DELETE',
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error('Failed to delete product');
       // Refresh products
-      const productsRes = await fetch(`${API_BASE_URL}/api/shop/products`, {
+      const productsRes = await fetch('https://shopspheresworld.netlify.app/api/shop/products', {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProducts(await productsRes.json());

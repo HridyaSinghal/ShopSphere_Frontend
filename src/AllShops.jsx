@@ -82,7 +82,7 @@ const AllShops = () => {
   const fetchShops = async () => {
     const token = localStorage.getItem('userToken');
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/public/all-shops`, {
+      const response = await axios.get('https://shopspheresworld.netlify.app/api/public/all-shops', {
         headers: { Authorization: `Bearer ${token}` }
       });
       const allShops = response.data;

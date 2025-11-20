@@ -20,13 +20,13 @@ const ShopProducts = () => {
       try {
         setLoading(true);
         setError(null);
-        const shopsResponse = await fetch(`${API_BASE_URL}/api/public/all-shops`);
+        const shopsResponse = await fetch('https://shopspheresworld.netlify.app/api/public/all-shops');
         if (!shopsResponse.ok) throw new Error('Failed to fetch shop information');
         const shops = await shopsResponse.json();
         const currentShop = shops.find(shop => shop.shopId === parseInt(shopId));
         if (!currentShop) throw new Error('Shop not found');
         setShopInfo(currentShop);
-        const productsResponse = await fetch(`${API_BASE_URL}/api/public/shop/${shopId}/products`);
+        const productsResponse = await fetch(`https://shopspheresworld.netlify.app/api/public/shop/${shopId}/products`);
         if (!productsResponse.ok) throw new Error('Failed to fetch products');
         const productsData = await productsResponse.json();
         setProducts(productsData);
@@ -99,7 +99,7 @@ const ShopProducts = () => {
           const newQuantity = (parseInt(product.quantity) || 0) - item.quantity;
           // Ensure shop field is present for backend update
           const updatedProduct = { ...product, quantity: newQuantity.toString(), shop: { shop_id: shopId } };
-          await fetch(`${API_BASE_URL}/api/public/purchase-product`, {
+          await fetch('https://shopspheresworld.netlify.app/api/public/purchase-product', {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
