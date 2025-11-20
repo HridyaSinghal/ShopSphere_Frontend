@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8080';
+
 // Helper function to decode JWT
 function parseJwt(token) {
   if (!token) return {};
@@ -80,7 +82,7 @@ const AllShops = () => {
   const fetchShops = async () => {
     const token = localStorage.getItem('userToken');
     try {
-      const response = await axios.get('http://localhost:8080/api/public/all-shops', {
+      const response = await axios.get(`${API_BASE_URL}/api/public/all-shops`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       const allShops = response.data;
